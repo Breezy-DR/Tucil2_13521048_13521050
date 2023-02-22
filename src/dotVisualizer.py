@@ -5,5 +5,5 @@ def plot3D(xClosest, yClosest, zClosest, xOthers, yOthers, zOthers):
     plt.rcParams["figure.autolayout"] = True
     fig = plt.figure()
     axis = fig.add_subplot(projection="3d")
-    axis.scatter(xOthers, yOthers,zOthers, c='black')
+    axis.scatter(xOthers, yOthers,zOthers, c='green')
     axis.scatter(xClosest,yClosest,zClosest, c='red')
