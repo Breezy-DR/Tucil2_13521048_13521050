@@ -10,5 +10,5 @@ Program ini digunakan untuk mencari sepasang titik terdekat pada bidang tiga dim
 ## Cara Menggunakan Program
 
 ## Author
-13521048: Muhammad Farrel Danendra Rachim
+13521048: Muhammad Farrel Danendra Rachim <br />
 13521050: Naufal Syifa Firdaus
