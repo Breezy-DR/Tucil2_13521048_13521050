@@ -17,6 +17,8 @@ class Dot:
         squareZ = (self.z - otherDot.z)**2
         return sqrt(squareX + squareY + squareZ)
 
+    def getX(self):
+        return self.x
 
 
     
