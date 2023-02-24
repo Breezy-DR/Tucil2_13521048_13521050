@@ -17,7 +17,26 @@ def randomSorted(n):
 
     return pointList
 
-def calculateClosest(pointList ):  # bidang pembatas ditengah (x, 0, 0)
+def bruteforceClosest(pointList):
+
+    if(len(pointList) > 1):
+        closestPair = PairOfDots(pointList[0], 
+                                pointList[1], 
+                                pointList[0].distanceTwoDots(pointList[1]))
+
+        for i in pointList:
+                for j in pointList:
+                    if (i.distanceTwoDots(j) < closestPair.distance and i != j):
+                        closestPair.p1 = i
+                        closestPair.p2 = j
+                        closestPair.distance = i.distanceTwoDots(j)
+
+
+    return closestPair
+
+
+
+def calculateClosest(pointList):  # bidang pembatas ditengah (x, 0, 0)
 
     # BASIS 
     if(len(pointList) == 2):
@@ -45,6 +64,13 @@ def calculateClosest(pointList ):  # bidang pembatas ditengah (x, 0, 0)
 
         return closestPair
     
+    # REKURENS
+    else:
+        middle = len(pointList) // 2
+
+        closestPair_Right = calculateClosest()
+
+    
     
 
 points = randomSorted(3)
@@ -58,3 +84,9 @@ print("\nClosest Pair: ")
 closestPair.p1.displayDot()
 closestPair.p2.displayDot()
 print(closestPair.distance)
+
+closestPairBruteForce = bruteforceClosest(points)
+print("\nClosest Pair Brute Force: ")
+closestPairBruteForce.p1.displayDot()
+closestPairBruteForce.p2.displayDot()
+print(closestPairBruteForce.distance)
