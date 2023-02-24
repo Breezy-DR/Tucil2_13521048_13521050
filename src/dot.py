@@ -19,6 +19,13 @@ class Dot:
 
     def getX(self):
         return self.x
+    
+
+class PairOfDots:
+    def __init__(self, p1, p2, distance):
+        self.p1 = p1
+        self.p2 = p2
+        self.distance = distance
 
 
     
