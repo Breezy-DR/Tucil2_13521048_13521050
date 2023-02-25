@@ -17,6 +17,11 @@ class Dot:
         squareZ = (self.z - otherDot.z)**2
         return sqrt(squareX + squareY + squareZ)
 
+    def isEqual(self, otherDot: Dot):
+        if (self.x == otherDot.x and self.y == otherDot.y and self.z == otherDot.z):
+            return True
+        return False 
+
     def getX(self):
         return self.x
     

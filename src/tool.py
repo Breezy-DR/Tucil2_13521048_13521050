@@ -52,13 +52,15 @@ def distanceAbscissa(point1, point2):
 def calculateClosest(pointList):  # bidang pembatas ditengah (x, 0, 0)
 
     # BASIS 
+    countEuclidean = 0
     if(len(pointList) == 2):
 
         closestPair = PairOfDots(pointList[0], 
                                 pointList[1], 
                                 pointList[0].distanceTwoDots(pointList[1]))
         
-        return closestPair
+        countEuclidean += 1
+        return closestPair, countEuclidean
 
     elif (len(pointList) == 3):
         
@@ -74,15 +76,19 @@ def calculateClosest(pointList):  # bidang pembatas ditengah (x, 0, 0)
             closestPair.p1 = pointList[1]
             closestPair.p2 = pointList[2]
             closestPair.distance = pointList[1].distanceTwoDots(pointList[2])
+        
+        countEuclidean += 3
 
-        return closestPair
+        return closestPair, countEuclidean
     
     # REKURENS
     else:
         middle = len(pointList) // 2
 
-        closestPair_Right = calculateClosest(pointList[:middle])
-        closestPair_Left = calculateClosest(pointList[middle:])
+        closestPair_Right, countRightEuclidean = calculateClosest(pointList[:middle])
+        countEuclidean += countRightEuclidean
+        closestPair_Left, countLeftEuclidean = calculateClosest(pointList[middle:])
+        countEuclidean += countLeftEuclidean
 
         closestPair = minDistancePair(closestPair_Left, closestPair_Right)
 
@@ -97,10 +103,35 @@ def calculateClosest(pointList):  # bidang pembatas ditengah (x, 0, 0)
         
         for a in pointField:
             for b in pointField:
+                countEuclidean += 1
                 if (a.distanceTwoDots(b) < closestPair.distance and a != b):
                     closestPair = PairOfDots(a, b, a.distanceTwoDots(b))
         
-        return closestPair
+        return closestPair, countEuclidean
+
+def getSeparateXYZ(pointList, closestPair):
+    xs = []
+    ys = []
+    zs = []
+    for i in range (0, len(pointList)):
+        if (not pointList[i].isEqual(closestPair.p1)):
+            if (not pointList[i].isEqual(closestPair.p2)):
+                xs.append(pointList[i].x)
+                ys.append(pointList[i].y)
+                zs.append(pointList[i].z)
+    return xs, ys, zs
+
+def getSeparateClosestXYZ(closestPair):
+    xclosest = []
+    yclosest = []
+    zclosest = []
+    xclosest.append(closestPair.p1.x)
+    yclosest.append(closestPair.p1.y)
+    zclosest.append(closestPair.p1.z)
+    xclosest.append(closestPair.p2.x)
+    yclosest.append(closestPair.p2.y)
+    zclosest.append(closestPair.p2.z)
+    return xclosest, yclosest, zclosest
     
 
 points = randomSorted(100)
@@ -108,15 +139,26 @@ points = randomSorted(100)
 for i in range(3):
     points[i].displayDot()
 
-closestPair = calculateClosest(points)
+closestPair, count1 = calculateClosest(points)
 
 print("\nClosest Pair: ")
 closestPair.p1.displayDot()
 closestPair.p2.displayDot()
 print(closestPair.distance)
+print(count1)
 
 closestPairBruteForce = bruteforceClosest(points)
 print("\nClosest Pair Brute Force: ")
 closestPairBruteForce.p1.displayDot()
 closestPairBruteForce.p2.displayDot()
 print(closestPairBruteForce.distance)
+
+xlist, ylist, zlist = getSeparateXYZ(points, closestPair)
+x1, y1, z1 = getSeparateClosestXYZ(closestPair)
+
+print(xlist)
+print(ylist)
+print(zlist)
+print(x1)
+print(y1)
+print(z1)
