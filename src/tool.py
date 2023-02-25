@@ -9,7 +9,8 @@ def randomSorted(n):
     pointList = []
 
     for i in range (0,n):
-        point = Dot(randrange(0, 100), randrange(0, 100), randrange(0, 100))
+
+        point = Dot(round(uniform(-100, 100), 3), round(uniform(-100, 100), 3), round(uniform(-100, 100), 3))
         print(i)
         pointList.append(point)
 
@@ -19,20 +20,22 @@ def randomSorted(n):
 
 def bruteforceClosest(pointList):
 
+    euclideanCount = 0
     if(len(pointList) > 1):
+        euclideanCount += 1
         closestPair = PairOfDots(pointList[0], 
                                 pointList[1], 
                                 pointList[0].distanceTwoDots(pointList[1]))
 
         for i in pointList:
                 for j in pointList:
+                    euclideanCount += 1
                     if (i.distanceTwoDots(j) < closestPair.distance and i != j):
                         closestPair.p1 = i
                         closestPair.p2 = j
                         closestPair.distance = i.distanceTwoDots(j)
 
-
-    return closestPair
+    return closestPair, euclideanCount
 
 def minDistancePair(pair1, pair2):
     
@@ -134,31 +137,31 @@ def getSeparateClosestXYZ(closestPair):
     return xclosest, yclosest, zclosest
     
 
-points = randomSorted(100)
+# points = randomSorted(100)
 
-for i in range(3):
-    points[i].displayDot()
+# for i in range(3):
+#     points[i].displayDot()
 
-closestPair, count1 = calculateClosest(points)
+# closestPair, count1 = calculateClosest(points)
 
-print("\nClosest Pair: ")
-closestPair.p1.displayDot()
-closestPair.p2.displayDot()
-print(closestPair.distance)
-print(count1)
+# print("\nClosest Pair: ")
+# closestPair.p1.displayDot()
+# closestPair.p2.displayDot()
+# print(closestPair.distance)
+# print(count1)
 
-closestPairBruteForce = bruteforceClosest(points)
-print("\nClosest Pair Brute Force: ")
-closestPairBruteForce.p1.displayDot()
-closestPairBruteForce.p2.displayDot()
-print(closestPairBruteForce.distance)
+# closestPairBruteForce = bruteforceClosest(points)
+# print("\nClosest Pair Brute Force: ")
+# closestPairBruteForce.p1.displayDot()
+# closestPairBruteForce.p2.displayDot()
+# print(closestPairBruteForce.distance)
 
-xlist, ylist, zlist = getSeparateXYZ(points, closestPair)
-x1, y1, z1 = getSeparateClosestXYZ(closestPair)
+# xlist, ylist, zlist = getSeparateXYZ(points, closestPair)
+# x1, y1, z1 = getSeparateClosestXYZ(closestPair)
 
-print(xlist)
-print(ylist)
-print(zlist)
-print(x1)
-print(y1)
-print(z1)
+# print(xlist)
+# print(ylist)
+# print(zlist)
+# print(x1)
+# print(y1)
+# print(z1)
