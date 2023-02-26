@@ -1,5 +1,5 @@
 from tool import *
-# from dotVisualizer import *
+from dotVisualizer import *
 from dot import *
 from timeit import default_timer as timer
 
@@ -61,11 +61,10 @@ print("\n=============================================\n")
 
 print("The amount of Euclidean operations done:")
 print(countDVC)
-print("Divide and Conquer algorithm duration: ")
-print(f"{timeDVC * 1000} milisecond")
 
 print("\n=============================================\n")
-# print("Execution time:", (etDVC - stDVC) * (10**6), "microseconds")
+print("Divide and Conquer algorithm duration: ")
+print(f"{timeDVC * 1000} milisecond")
 print("\n=============================================\n")
 
 print("\n=============================================\n")
@@ -85,9 +84,13 @@ print("\n=============================================\n")
 
 print("The amount of Euclidean operations done:")
 print(countBrute)
-print("Brute Force algorithm duration: ")
-print(f"{timeBF * 1000} milisecond")
 
 print("\n=============================================\n")
-# print("Execution time:", (timeBrute) * 1000, "milliseconds")
+print("Brute Force algorithm duration: ")
+print(f"{timeBF * 1000} milisecond")
 print("\n=============================================\n")
+
+xOthers, yOthers, zOthers = getSeparateXYZ(points,closestPairDVC)
+xClosest,yClosest, zClosest = getSeparateClosestXYZ(closestPairDVC)
+
+plot3D(xClosest,yClosest,zClosest,xOthers,yOthers,zOthers)
