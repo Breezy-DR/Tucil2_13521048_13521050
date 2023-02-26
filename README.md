@@ -19,6 +19,7 @@ C:\Users\USER\AppData\Local\Programs\Python\Python39\Scripts
 
 ```
 2. Setup virtual environment dan install library-library di atas menggunakan pip, dengan langkah mirip seperti video berikut: https://www.youtube.com/watch?v=qPiXA6s1cFs
+3. Jalankan main.py di folder src
 
 ## Author
 13521048: Muhammad Farrel Danendra Rachim <br />
