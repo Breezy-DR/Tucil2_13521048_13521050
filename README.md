@@ -12,10 +12,10 @@ Program ini digunakan untuk mencari sepasang titik terdekat pada bidang tiga dim
 - Library: timeit, __future__, random, matplotlib
 
 ## Cara Menggunakan Program
-1. Pasang environment variable dengan directory berikut:
+1. Pasang environment variable dengan directory berikut (Python39 dapat diganti dengan Python310 atau versi Python lainnya):
 ```
-C:\Users\Maninder\AppData\Local\Programs\Python\Python39
-C:\Users\Maninder\AppData\Local\Programs\Python\Python39\Scripts
+C:\Users\USER\AppData\Local\Programs\Python\Python39
+C:\Users\USER\AppData\Local\Programs\Python\Python39\Scripts
 
 ```
 2. Setup environment variable dan install library-library di atas menggunakan pip, dengan langkah mirip seperti video berikut: https://www.youtube.com/watch?v=qPiXA6s1cFs
