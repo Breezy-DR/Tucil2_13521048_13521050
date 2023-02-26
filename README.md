@@ -7,8 +7,18 @@ Mencari Pasangan Titik Terdekat 3D dengan Algoritma Divide and Conquer
 Program ini digunakan untuk mencari sepasang titik terdekat pada bidang tiga dimensi (3D) dengan algoritma Divide And Conquer. Program menggunakan bahasa Python. // Tambahkan lagi nanti
 
 ## Requirement
+- Visual Studio Code
+- Virtual Environment
+- Library: timeit, __future__, random, matplotlib
 
 ## Cara Menggunakan Program
+1. Pasang environment variable dengan directory berikut: <br \>
+'''
+C:\Users\Maninder\AppData\Local\Programs\Python\Python39
+C:\Users\Maninder\AppData\Local\Programs\Python\Python39\Scripts
+
+'''
+2. Setup environment variable dan install library-library di atas menggunakan pip, dengan langkah mirip seperti video berikut: https://www.youtube.com/watch?v=qPiXA6s1cFs
 
 ## Author
 13521048: Muhammad Farrel Danendra Rachim <br />
