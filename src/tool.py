@@ -11,7 +11,7 @@ def randomSorted(n):
     for i in range (0,n):
 
         point = Dot(round(uniform(-100, 100), 3), round(uniform(-100, 100), 3), round(uniform(-100, 100), 3))
-        print(i)
+
         pointList.append(point)
 
     pointList = sorted(pointList, key=lambda Dot: Dot.x)
