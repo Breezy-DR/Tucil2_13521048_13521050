@@ -28,11 +28,6 @@ print("\n=============================================\n")
 
 points = randomSorted(n)
 
-print("Daftar titik:")
-
-for i in range(n):
-    points[i].displayDot()
-
 startDVC = timer()
 closestPairDVC, countDVC = calculateClosest(points)
 endDVC = timer()
@@ -64,7 +59,7 @@ print(countDVC)
 
 print("\n=============================================\n")
 print("Divide and Conquer algorithm duration: ")
-print(f"{timeDVC * 1000} milisecond")
+print(f"{timeDVC * 10**6} microseconds")
 print("\n=============================================\n")
 
 print("\n=============================================\n")
@@ -87,7 +82,7 @@ print(countBrute)
 
 print("\n=============================================\n")
 print("Brute Force algorithm duration: ")
-print(f"{timeBF * 1000} milisecond")
+print(f"{timeBF * 10**6} microseconds")
 print("\n=============================================\n")
 
 xOthers, yOthers, zOthers = getSeparateXYZ(points,closestPairDVC)

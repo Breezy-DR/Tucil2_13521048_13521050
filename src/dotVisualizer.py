@@ -1,7 +1,10 @@
 from matplotlib import pyplot as plt
 
 def plot3D(xClosest, yClosest, zClosest, xOthers, yOthers, zOthers):
-    plt.rcParams["figure.figsize"] = [7.50, 3.50]
+    # Menggambarkan semua titik dalam bidang 3D
+    # Sepasang titik yang jaraknya terdekat ditunjukkan dengan warna merah, 
+    # sedangkan titik lainnya ditunjukkan dengan warna hijau
+    plt.rcParams["figure.figsize"] = [12, 9]
     plt.rcParams["figure.autolayout"] = True
     fig = plt.figure()
     axis = fig.add_subplot(projection="3d")

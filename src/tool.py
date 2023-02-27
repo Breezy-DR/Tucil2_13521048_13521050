@@ -1,16 +1,15 @@
 from dot import *
 from random import *
 
-
-# Menghasilkan list point yang random tapi terurut
-# berdasarkan nilai sumbu x
 def randomSorted(n):
+    # Menghasilkan list point yang random tapi terurut berdasarkan nilai sumbu x
 
     pointList = []
 
     for i in range (0,n):
 
-        point = Dot(round(uniform(-100, 100), 3), round(uniform(-100, 100), 3), round(uniform(-100, 100), 3))
+        # Restriksi masing-masing sumbu antara -100000 sampai 100000
+        point = Dot(round(uniform(-100000, 100000), 3), round(uniform(-100000, 100000), 3), round(uniform(-100000, 100000), 3))
 
         pointList.append(point)
 
