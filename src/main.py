@@ -14,15 +14,15 @@ while True:
     try:
         n = int(n)            
     except ValueError:
-        print("Nilai n harus berupa integer >= 0. Silakan coba lagi.")
+        print("Nilai n harus berupa integer >= 2. Silakan coba lagi.")
     else:
         try:
-            if n < 0:
+            if n < 2:
                 raise InvalidN
             else:
                 break
         except InvalidN:
-            print("Nilai n >= 0. Silakan coba lagi.")
+            print("Nilai n >= 2. Silakan coba lagi.")
 
 print("\n=============================================\n")
 

@@ -44,9 +44,8 @@ def minDistancePair(pair1, pair2):
         return pair2
     
 
-# hitung jarak dengan atribut x aja
 def distanceAbscissa(point1, point2):
-    
+    # Menghitung jarak dengan memperhatikan atribut x saja
     return abs(point1.x - point2.x)
 
 
@@ -112,6 +111,8 @@ def calculateClosest(pointList):  # bidang pembatas ditengah (x, 0, 0)
         return closestPair, countEuclidean
 
 def getSeparateXYZ(pointList, closestPair):
+    # Mengembalikan tuple berisi list atribut x, y, z yang terpisah
+    # dari titik-titik yang bukan merupakan pasangan titik terdekat
     xs = []
     ys = []
     zs = []
@@ -124,6 +125,8 @@ def getSeparateXYZ(pointList, closestPair):
     return xs, ys, zs
 
 def getSeparateClosestXYZ(closestPair):
+    # Mengembalikan tuple berisi list atribut x, y, z yang terpisah
+    # dari titik-titik yang merupakan pasangan titik terdekat
     xclosest = []
     yclosest = []
     zclosest = []
