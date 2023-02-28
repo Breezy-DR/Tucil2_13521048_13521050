@@ -24,9 +24,24 @@ while True:
         except InvalidN:
             print("Nilai n >= 2. Silakan coba lagi.")
 
+while True:
+    dimention = input("Masukkan nilai dimention: ")
+    try:
+        dimention = int(dimention)            
+    except ValueError:
+        print("Nilai dimention harus berupa integer >= 1. Silakan coba lagi.")
+    else:
+        try:
+            if dimention < 1:
+                raise InvalidN
+            else:
+                break
+        except InvalidN:
+            print("Nilai dimention >= 1. Silakan coba lagi.")
+
 print("\n=============================================\n")
 
-points = randomSorted(n)
+points = dotSorted(n, dimention)
 
 startDVC = timer()
 closestPairDVC, countDVC = calculateClosest(points)
@@ -59,7 +74,7 @@ print(countDVC)
 
 print("\n=============================================\n")
 print("Divide and Conquer algorithm duration: ")
-print(f"{timeDVC * 10**6} microseconds")
+print(f"{timeDVC * 10**6 :.3f} microseconds ({timeDVC :.f} seconds)")
 print("\n=============================================\n")
 
 print("\n=============================================\n")
@@ -82,10 +97,17 @@ print(countBrute)
 
 print("\n=============================================\n")
 print("Brute Force algorithm duration: ")
-print(f"{timeBF * 10**6} microseconds")
+print(f"{timeBF * 10**6 :.3f} microseconds ({timeBF :.2f} seconds)")
 print("\n=============================================\n")
 
-xOthers, yOthers, zOthers = getSeparateXYZ(points,closestPairDVC)
-xClosest,yClosest, zClosest = getSeparateClosestXYZ(closestPairDVC)
 
-plot3D(xClosest,yClosest,zClosest,xOthers,yOthers,zOthers)
+if(closestPairBrute.distance == closestPairDVC.distance):
+    print("DVC Valid!")
+else:
+    print("DVC Not Valid")
+
+    
+if(dimention == 3):
+    xOthers, yOthers, zOthers = getSeparateXYZ(points,closestPairDVC)
+    xClosest,yClosest, zClosest = getSeparateClosestXYZ(closestPairDVC)
+    plot3D(xClosest,yClosest,zClosest,xOthers,yOthers,zOthers)
