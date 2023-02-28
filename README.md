@@ -4,7 +4,7 @@ Tugas Kecil 2 IF2211 Strategi Algoritma Semester II tahun 2022/2023 <br />
 Mencari Pasangan Titik Terdekat 3D dengan Algoritma Divide and Conquer
 
 ## Deskripsi Singkat
-Program ini digunakan untuk mencari sepasang titik terdekat pada bidang tiga dimensi (3D) dengan algoritma Divide And Conquer, serta perbandingannya menggunakan algoritma Brute Force. Input dari pengguna adalah n (n >= 2), dengan n banyak titik yang akan di-generate, dan output berupa pasangan titik terdekat, jarak antara pasangan tersebut, waktu eksekusi, dan graph 3D berisi titik-titik yang di-generate, dengan pasangan titik tersebut di-highlight dengan warna berbeda. Program menggunakan bahasa Python.
+Program ini digunakan untuk mencari sepasang titik terdekat pada bidang tiga dimensi (3D) untuk sekumpulan vektor di R^n dengan algoritma Divide And Conquer, serta perbandingannya menggunakan algoritma Brute Force. Input dari pengguna adalah n (n >= 2), dengan n banyak titik yang akan di-generate, dan banyak dimensi dalam vektor R^n dengan dimensi >= 2. Output berupa pasangan titik terdekat, jarak antara pasangan tersebut, waktu eksekusi, dan graph 3D berisi titik-titik yang di-generate, dengan pasangan titik tersebut di-highlight dengan warna berbeda. Program menggunakan bahasa Python.
 
 ## Requirement
 - Visual Studio Code
