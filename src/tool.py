@@ -1,13 +1,13 @@
 from dot import *
 from random import *
 
-def dotSorted(n, dimention):
+def dotSorted(n, dimension):
     # Menghasilkan list point yang terurut berdasarkan nilai sumbu x
 
     pointList = []
 
     for i in range(n):
-        dot = Dot(dimention)
+        dot = Dot(dimension)
         pointList.append(dot)
 
     pointList = sorted(pointList, key=lambda Dot:Dot.coordinates[0])
@@ -41,7 +41,7 @@ def minDistancePair(pair1, pair2):
         return pair2
     
 
-def distanceAbscissa(point1, point2):
+def distanceAbsis(point1, point2):
     # Menghitung jarak dengan memperhatikan atribut x saja
     return abs(point1.coordinates[0] - point2.coordinates[0])
 
@@ -96,7 +96,7 @@ def calculateClosest(pointList):  # bidang pembatas ditengah (x, 0, 0)
         pointField = []
         
         for i in pointList:
-            if (distanceAbscissa(i, pointList[middle]) < closestPair.distance):
+            if (distanceAbsis(i, pointList[middle]) < closestPair.distance):
                 pointField.append(i)
 
         for a in pointField:

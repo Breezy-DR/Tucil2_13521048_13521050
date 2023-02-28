@@ -25,23 +25,23 @@ while True:
             print("Nilai n >= 2. Silakan coba lagi.")
 
 while True:
-    dimention = input("Masukkan nilai dimention: ")
+    dimension = input("Masukkan nilai dimension: ")
     try:
-        dimention = int(dimention)            
+        dimension = int(dimension)            
     except ValueError:
-        print("Nilai dimention harus berupa integer >= 1. Silakan coba lagi.")
+        print("Nilai dimension harus berupa integer >= 2. Silakan coba lagi.")
     else:
         try:
-            if dimention < 1:
+            if dimension < 2:
                 raise InvalidN
             else:
                 break
         except InvalidN:
-            print("Nilai dimention >= 1. Silakan coba lagi.")
+            print("Nilai dimension >= 2. Silakan coba lagi.")
 
 print("\n=============================================\n")
 
-points = dotSorted(n, dimention)
+points = dotSorted(n, dimension)
 
 startDVC = timer()
 closestPairDVC, countDVC = calculateClosest(points)
@@ -74,7 +74,7 @@ print(countDVC)
 
 print("\n=============================================\n")
 print("Divide and Conquer algorithm duration: ")
-print(f"{timeDVC * 10**6 :.3f} microseconds ({timeDVC :.f} seconds)")
+print(f"{timeDVC * 10**6 :.3f} microseconds ({timeDVC :.2f} seconds)")
 print("\n=============================================\n")
 
 print("\n=============================================\n")
@@ -107,7 +107,7 @@ else:
     print("DVC Not Valid")
 
     
-if(dimention == 3):
+if(dimension == 3):
     xOthers, yOthers, zOthers = getSeparateXYZ(points,closestPairDVC)
     xClosest,yClosest, zClosest = getSeparateClosestXYZ(closestPairDVC)
     plot3D(xClosest,yClosest,zClosest,xOthers,yOthers,zOthers)
