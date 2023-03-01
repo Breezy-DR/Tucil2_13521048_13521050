@@ -15,7 +15,7 @@ def dotSorted(n, dimension):
     return pointList
 
 def bruteforceClosest(pointList):
-
+    # Mencari pasangan titik terdekat dengan menggunakan algoritma brute force.
     euclideanCount = 0
     if(len(pointList) > 1):
         euclideanCount += 1
@@ -34,7 +34,7 @@ def bruteforceClosest(pointList):
     return closestPair, euclideanCount
 
 def minDistancePair(pair1, pair2):
-    
+    # Menentukan pasangan titik dengan jarak paling dekat antara dua pasangan titik.
     if(pair1.distance < pair2.distance):
         return pair1
     else:
@@ -48,7 +48,7 @@ def distanceAbsis(point1, point2):
 
 
 def calculateClosest(pointList):  # bidang pembatas ditengah (x, 0, 0)
-
+    # Menghasilkan pasangan titik yang paling dekat menggunakan algoritma Divide and Conquer.
     # BASIS 
     countEuclidean = 0
     if(len(pointList) == 2):
