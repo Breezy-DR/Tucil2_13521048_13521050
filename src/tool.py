@@ -1,24 +1,21 @@
 from dot import *
 from random import *
 
-def randomSorted(n):
-    # Menghasilkan list point yang random tapi terurut berdasarkan nilai sumbu x
+def dotSorted(n, dimension):
+    # Menghasilkan list point yang terurut berdasarkan nilai sumbu x
 
     pointList = []
 
-    for i in range (0,n):
+    for i in range(n):
+        dot = Dot(dimension)
+        pointList.append(dot)
 
-        # Restriksi masing-masing sumbu antara -100000 sampai 100000
-        point = Dot(round(uniform(-100000, 100000), 3), round(uniform(-100000, 100000), 3), round(uniform(-100000, 100000), 3))
-
-        pointList.append(point)
-
-    pointList = sorted(pointList, key=lambda Dot: Dot.x)
-
+    pointList = sorted(pointList, key=lambda Dot:Dot.coordinates[0])
+    
     return pointList
 
 def bruteforceClosest(pointList):
-
+    # Mencari pasangan titik terdekat dengan menggunakan algoritma brute force.
     euclideanCount = 0
     if(len(pointList) > 1):
         euclideanCount += 1
@@ -37,21 +34,21 @@ def bruteforceClosest(pointList):
     return closestPair, euclideanCount
 
 def minDistancePair(pair1, pair2):
-    
+    # Menentukan pasangan titik dengan jarak paling dekat antara dua pasangan titik.
     if(pair1.distance < pair2.distance):
         return pair1
     else:
         return pair2
     
 
-def distanceAbscissa(point1, point2):
+def distanceAbsis(point1, point2):
     # Menghitung jarak dengan memperhatikan atribut x saja
-    return abs(point1.x - point2.x)
+    return abs(point1.coordinates[0] - point2.coordinates[0])
 
 
 
 def calculateClosest(pointList):  # bidang pembatas ditengah (x, 0, 0)
-
+    # Menghasilkan pasangan titik yang paling dekat menggunakan algoritma Divide and Conquer.
     # BASIS 
     countEuclidean = 0
     if(len(pointList) == 2):
@@ -99,9 +96,9 @@ def calculateClosest(pointList):  # bidang pembatas ditengah (x, 0, 0)
         pointField = []
         
         for i in pointList:
-            if distanceAbscissa(i, pointList[middle]) < closestPair.distance:
+            if (distanceAbsis(i, pointList[middle]) < closestPair.distance):
                 pointField.append(i)
-        
+
         for a in pointField:
             for b in pointField:
                 countEuclidean += 1
@@ -119,9 +116,9 @@ def getSeparateXYZ(pointList, closestPair):
     for i in range (0, len(pointList)):
         if (not pointList[i].isEqual(closestPair.p1)):
             if (not pointList[i].isEqual(closestPair.p2)):
-                xs.append(pointList[i].x)
-                ys.append(pointList[i].y)
-                zs.append(pointList[i].z)
+                xs.append(pointList[i].coordinates[0])
+                ys.append(pointList[i].coordinates[1])
+                zs.append(pointList[i].coordinates[2])
     return xs, ys, zs
 
 def getSeparateClosestXYZ(closestPair):
@@ -130,16 +127,17 @@ def getSeparateClosestXYZ(closestPair):
     xclosest = []
     yclosest = []
     zclosest = []
-    xclosest.append(closestPair.p1.x)
-    yclosest.append(closestPair.p1.y)
-    zclosest.append(closestPair.p1.z)
-    xclosest.append(closestPair.p2.x)
-    yclosest.append(closestPair.p2.y)
-    zclosest.append(closestPair.p2.z)
+    xclosest.append(closestPair.p1.coordinates[0])
+    yclosest.append(closestPair.p1.coordinates[1])
+    zclosest.append(closestPair.p1.coordinates[2])
+    xclosest.append(closestPair.p2.coordinates[0])
+    yclosest.append(closestPair.p2.coordinates[1])
+    zclosest.append(closestPair.p2.coordinates[2])
     return xclosest, yclosest, zclosest
-    
 
-# points = randomSorted(100)
+
+
+# points = dotSorted(100, 3)
 
 # for i in range(3):
 #     points[i].displayDot()
